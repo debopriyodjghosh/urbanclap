@@ -18,30 +18,30 @@ if ($conn->connect_error) {
 <title>service list</title>
 
 
-	
+
 <?php
 
-$s_name=$_POST["s_name"];
-$s_desc=$_POST["s_desc"];
+$s_name = $_POST["s_name"];
+$s_desc = $_POST["s_desc"];
 
 $sql = "INSERT INTO `service` ( `s_name`, `s_desc`) VALUES ( '$s_name', '$s_desc')";
 
 if ($conn->query($sql) === TRUE) {
-    ?>
-	<label style="color:#3CB371"><b>New Service added </b></label>
-<?php
-}
- else {
-    ?>
-	<label style="color:#FF6347"><b>User Already Exists<br>or<br>Wrong Info Provided</b></label><?php
-}
-
-$conn->close();
 ?>
+    <label style="color:#3CB371"><b>New Service added </b></label>
+<?php
+} else {
+?>
+    <label style="color:#FF6347"><b>User Already Exists<br>or<br>Wrong Info Provided</b></label><?php
+                                                                                            }
+
+                                                                                            $conn->close();
+                                                                                                ?>
 
 
 
 
 
 </body>
+
 </html>

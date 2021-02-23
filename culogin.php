@@ -28,30 +28,32 @@ if ($result->num_rows > 0) {
         $c_email = $row["c_email"];
         $flag = 1;
     }
-
-
 }
 
-if ($flag == 1) 
-{
+if ($flag == 1) {
 ?>
     <html>
+
     <body>
-    </center>
-<p align="center">success</p></body>
-</html>
+        </center>
+        <p align="center">success</p>
+    </body>
+
+    </html>
 <?php
 }
 
 
-if ($flag == 0) 
-{
+if ($flag == 0) {
 ?>
     <html>
+
     <body>
-    </center>
-<p align="center">wrong credential</p></body>
-</html>
+        </center>
+        <p align="center">wrong credential</p>
+    </body>
+
+    </html>
 <?php
 }
 ?>

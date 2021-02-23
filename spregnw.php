@@ -32,22 +32,22 @@ if ($conn->connect_error) {
         <input type="text" value="" placeholder="Phone" name="sp_contact" autocomplete="off" required="">
 
         <input type="text" value="" placeholder="Email" name="sp_email" autocomplete="off" required="">
-		Service Name:
-	<select  name="s_name" >
-		<option >~SELECT Service~</option>
-		<?php
-		
-		$sql = "SELECT * FROM service where No_sp<20";
-			$result = $conn->query($sql);
+        Service Name:
+        <select name="s_name">
+            <option>~SELECT Service~</option>
+            <?php
 
-			while($row = $result->fetch_array()) {
-				echo "<option value='".$row["s_name"]."'>".$row["s_name"]."</option>";
-			} 
-				
-		?>
-		  </select> <br><br>
-    
-          
+            $sql = "SELECT * FROM service where No_sp<20";
+            $result = $conn->query($sql);
+
+            while ($row = $result->fetch_array()) {
+                echo "<option value='" . $row["s_name"] . "'>" . $row["s_name"] . "</option>";
+            }
+
+            ?>
+        </select> <br><br>
+
+
         <input type="text" value="" placeholder="Experience" name="sp_exp" autocomplete="off" required="">
 
         <input type="text" value="" placeholder="Account No" name="sp_ac" autocomplete="off" required="">
