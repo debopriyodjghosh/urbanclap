@@ -1,0 +1,34 @@
+
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+
+<form name="signup" action="cusregistration.php" method="post">
+        <h3>Create your account </h3>
+
+        <input type="text" value="" placeholder="id" name="c_id" autocomplete="off" required="">
+
+        <input type="text" value="" placeholder="Full Name" name="c_name" autocomplete="off" required="">
+
+        <input type="text" value="" placeholder="Address" name="c_add" autocomplete="off" required="">
+
+        <input type="text" value="" placeholder="Phone" name="c_contact" autocomplete="off" required="">
+
+        <input type="text" value="" placeholder="Email" name="c_email" autocomplete="off" required="">
+
+        <input type="text" value="" placeholder="Rating" name="c_rating" autocomplete="off" required="">
+
+        <input type="password" value="" placeholder="Password" name="pass" required="">	
+
+        <input type="submit" name="submit" id="submit" value="CREATE ACCOUNT">
+    </form>
+
+</body>
+
+</html>
+
