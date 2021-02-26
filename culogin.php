@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+session_start();
 ?>
 
 
@@ -19,14 +19,15 @@ if ($conn->connect_error) {
 $c_email = $_POST["c_email"];
 $pass = $_POST["pass"];
 $flag = 0;
-
-$sql = "SELECT * from customer where c_email='$c_email' and pass='$pass'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-        $c_email = $row["c_email"];
-        $flag = 1;
+$_SESSION['c_email']=$c_email;
+$sql = "SELECT * from customer where c_email='$c_email' and password='$pass'";
+if($result = $conn->query($sql)){
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $c_email = $row["c_email"];
+            $flag = 1;
+        }
     }
 }
 
@@ -37,6 +38,7 @@ if ($flag == 1) {
     <body>
         </center>
         <p align="center">success</p>
+        <?php header("Location: demohome.php"); ?>
     </body>
 
     </html>

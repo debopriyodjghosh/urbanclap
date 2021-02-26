@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
-
+session_start();
 ?>
 
 
@@ -33,7 +33,7 @@ $sp_ifsc = $_POST["sp_ifsc"];
 $pass = $_POST["pass"];
 $s_name = $_POST["s_name"];
 
-$sql = "INSERT INTO `service_provider`( `sp_name`, `sp_add`, `sp_city`, `sp_contact`, `sp_email`, `sp_exp`, `sp_rating`, `sp_account_no`, `sp_IFSC_no`, `pass`, `s_name`) VALUES ( '$sp_name', '$sp_add', '$sp_city', '$sp_contact', '$sp_email', '$sp_exp', '$sp_rating', '$sp_ac', '$sp_ifsc', '$pass', '$s_name')";
+$sql = "INSERT INTO `service_provider`( `sp_name`, `sp_add`, `sp_contact`, `sp_email`, `sp_exp`, `sp_rating`, `sp_account_no`, `sp_IFSC_no`, `sp_city`, `sp_s_name`, `pass`) VALUES ( '$sp_name', '$sp_add', '$sp_contact', '$sp_email', '$sp_exp', '$sp_rating', '$sp_ac', '$sp_ifsc', '$sp_city', '$s_name', '$pass')";
 
 if ($conn->query($sql) === TRUE) {
 
@@ -42,7 +42,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 ?>
-	<label style="color:#3CB371"><b>New User Created successfully </b></label>
+	<label style="color:#FF6347"><b>success</b></label>
 <?php
 } else {
 ?>
