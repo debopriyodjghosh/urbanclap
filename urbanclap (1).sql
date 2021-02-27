@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2021 at 12:06 PM
+-- Generation Time: Feb 27, 2021 at 04:06 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -43,6 +43,28 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`c_name`, `c_add`, `c_city`, `c_contact`, `c_email`, `password`) VALUES
 ('Sani Jana', 'South', 'Makordaha', '9123354043', 'janasani2@gmail.com', '12345'),
 ('Saikat Jana', 'Jhapordah', 'Domjur', '7278661001', 'sanijana15@gmail.com', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `o_id` int(11) NOT NULL,
+  `o_c_email` text COLLATE utf8_unicode_ci NOT NULL,
+  `o_sp_email` text COLLATE utf8_unicode_ci NOT NULL,
+  `o_add` text COLLATE utf8_unicode_ci NOT NULL,
+  `o_date` date NOT NULL,
+  `o_status` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`o_id`, `o_c_email`, `o_sp_email`, `o_add`, `o_date`, `o_status`) VALUES
+(6, 'sanijana15@gmail.com', 'buli@gmail.com', 'aaaa', '2021-03-12', 'payment pending');
 
 -- --------------------------------------------------------
 
@@ -104,6 +126,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`c_email`);
 
 --
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`o_id`);
+
+--
 -- Indexes for table `service`
 --
 ALTER TABLE `service`
@@ -114,6 +142,16 @@ ALTER TABLE `service`
 --
 ALTER TABLE `service_provider`
   ADD PRIMARY KEY (`sp_email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
