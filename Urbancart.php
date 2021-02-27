@@ -10,12 +10,26 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+if (!isset($_POST['s_name'])) {
+	echo "string";
+	header("Location:demohome.php");
+}
 //get action string
 $action = isset($_GET['action'])?$_GET['action']:"";
 //$s_name=$_POST["s_name"];
 //echo $s_name;
 session_start();
-echo $_SESSION['c_email'];
+$choose_city=$_POST['choose_city'];
+
+if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
+	
+	//Finding the product by code
+	$sp_email=$_POST['sp_email'];
+	$query = "SELECT * FROM service_provider where sp_email = '$sp_email'";
+	$stmt = $conn->query($query);
+	$_SESSION['cartlist'][$sp_email] =array('sp_email'=>$sp_email,'c_email'=>$_SESSION['c_email']);
+	$action="SearchResult";
+}
 ?>
 <html>
 <head>
@@ -24,27 +38,41 @@ echo $_SESSION['c_email'];
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-	<div"><?php echo $_POST["s_name"] ?></a> </div>
-	<div>
-		<form action="urbancart.php?action=SearchResult" method="post">
-			City Name:
-			<?php $s_name=$_POST["s_name"] ?>
-        	<select name="sp_city">
-	            <option>~SELECT City~</option>
-	            <?php
-
-	            $sql = "SELECT distinct c_add FROM customer";
-	            $result = $conn->query($sql);
-
-	            while ($row = $result->fetch_array()) {
-	                echo "<option value='" . $row["c_add"] . "'>" . $row["c_add"] . "</option>";
-	            }
-
-	            ?>
-	        </select> <br><br>
-	        <input type="submit" name="c_s_name" id="submit" value="Search">
-	        <input type="hidden" name="s_name" value="<?php print $s_name?>">
-		</form>
-	</div>
+	<?php if($action=='SearchResult'&&$_SERVER['REQUEST_METHOD']=='POST'){
+				$query = "SELECT * FROM service_provider where sp_city='$choose_city'";
+				$stmt = $conn->query($query);
+				?>
+				<div class="row">
+				    <div class="container" style="width:600px;">
+				      <?php while($service_provider = $stmt->fetch_array()){?>
+						  	<div class="col-md-4">
+						          <div class="caption">
+							            <p style="text-align:center;"><?php echo $service_provider['sp_name'];?></p>
+							            <p style="text-align:center;color:#04B745;">
+							            	<b>
+							            		<?php echo $service_provider['sp_exp'];?>		
+							            	</b>
+							            </p>
+					            		<form method="post" action="urbancart.php?action=addcart">
+							              	<p style="text-align:center;color:#04B745;">
+								                
+								                <button type="submit" class="btn btn-warning">Add To Cart</button>
+								                <input type="hidden" name="sp_email" value="<?php echo $service_provider['sp_email'];?>">
+								                <input type="hidden" name="s_name" value="<?php print $s_name?>">
+								                <input type="hidden" name="choose_city" value="<?php print $choose_city?>">
+							              	</p>
+						            	</form>
+						          	</div>
+						        </div>
+						  	</div>
+	  					<?php }?>
+	  					<div>
+							<form action="cart.php" method="post">
+								<input type="submit" name="go_to_cart" id="submit" value="go_to_cart">
+							</form>
+						</div>
+					</div>
+				</div>
+	<?php }?>
 </body>
 </html>

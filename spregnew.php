@@ -47,15 +47,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
 ?>
 	<label style="color:#FF6347"><b>User Already Exists, Try with Different ID<br>or<br>Wrong Info Provided</b></label><?php
-																													}
-
-																													$conn->close();
-																														?>
-
-
-
-
-
 </body>
 
 </html>

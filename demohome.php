@@ -11,7 +11,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-echo $_SESSION['c_email'];
 ?>
 <html>
 <head>
@@ -20,7 +19,7 @@ echo $_SESSION['c_email'];
     <title>Service list</title>
 </head>
 <body>
-    <form name="cart" action="urbancart.php" method="post">
+    <form name="cart" action="search_service_provider.php" method="post">
         Service Name:
             <?php
 

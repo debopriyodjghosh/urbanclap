@@ -26,6 +26,7 @@ if($result = $conn->query($sql)){
         // output data of each row
         while ($row = $result->fetch_assoc()) {
             $c_email = $row["c_email"];
+            $_SESSION['c_city']=$row["c_city"];
             $flag = 1;
         }
     }

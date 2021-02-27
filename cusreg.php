@@ -17,11 +17,12 @@ session_start();
 <?php
 $c_name = $_POST["c_name"];
 $c_add = $_POST["c_add"];
+$c_city = $_POST["c_city"];
 $c_contact = $_POST["c_contact"];
 $c_email = $_POST["c_email"];
 $pass = $_POST["pass"];
-
-$sql = "INSERT INTO `customer`( `c_name`, `c_add`, `c_contact`, `c_email`, `password`  ) VALUES ( '$c_name', '$c_add', '$c_contact', '$c_email', '$pass')";
+$_SESSION['c_email']=$c_email;
+$sql = "INSERT INTO `customer`( `c_name`, `c_add`, `c_city` , `c_contact`, `c_email`, `password`  ) VALUES ( '$c_name', '$c_add', '$c_city', '$c_contact', '$c_email', '$pass')";
 
 if ($conn->query($sql) === TRUE) {
 ?>
