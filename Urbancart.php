@@ -25,9 +25,10 @@ if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
 	
 	//Finding the product by code
 	$sp_email=$_POST['sp_email'];
+	$date=$_POST['choose_date'];
 	$query = "SELECT * FROM service_provider where sp_email = '$sp_email'";
 	$stmt = $conn->query($query);
-	$_SESSION['cartlist'][$sp_email] =array('sp_email'=>$sp_email,'c_email'=>$_SESSION['c_email']);
+	$_SESSION['cartlist'][$sp_email] =array('sp_email'=>$sp_email,'c_email'=>$_SESSION['c_email'],'date'=>$date);
 	$action="SearchResult";
 }
 ?>
@@ -54,6 +55,9 @@ if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
 							            	</b>
 							            </p>
 					            		<form method="post" action="urbancart.php?action=addcart">
+							              	<p style="text-align:center;color:#04B745;">
+							              		<input type="date" name="choose_date" id="date" required="">
+							              	</p>
 							              	<p style="text-align:center;color:#04B745;">
 								                
 								                <button type="submit" class="btn btn-warning">Add To Cart</button>

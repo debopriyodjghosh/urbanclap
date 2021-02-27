@@ -19,6 +19,9 @@ session_start();
     <title>Service list</title>
 </head>
 <body>
+    <div>
+        <a href="cart.php" class="btn btn-info">go to cart</a>
+    </div>
     <form name="cart" action="search_service_provider.php" method="post">
         Service Name:
             <?php
