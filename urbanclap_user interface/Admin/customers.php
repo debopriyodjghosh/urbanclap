@@ -18,8 +18,8 @@ if(!$_SESSION['admin_username'])
 		
 		
 	
-		$stmt_delete = $DB_con->prepare('DELETE FROM customer WHERE c_email =:user_id');
-		$stmt_delete->bindParam(':user_id',$_GET['delete_id']);
+		$stmt_delete = $DB_con->prepare('DELETE FROM customer WHERE c_email =:c_email');
+		$stmt_delete->bindParam(':c_email',$_GET['delete_id']);
 		$stmt_delete->execute();
 		
 		header("Location: customers.php");
@@ -34,10 +34,7 @@ if(!$_SESSION['admin_username'])
 	if(isset($_GET['order_id']))
 	{
 		
-		
-		
-	
-		$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
+			$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
 		$stmt_delete->bindParam(':user_id',$_GET['order_id']);
 		$stmt_delete->execute();
 		
@@ -45,9 +42,69 @@ if(!$_SESSION['admin_username'])
 	}
 
 ?>
-<?php
-	include 'nav.php';
-		?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Services</title>
+	 <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/datatables.min.js"></script>
+
+   
+    
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Urban Services - Administrator Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="index.php"> &nbsp; &nbsp; &nbsp; Home</a></li>
+					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Add A Service</a></li>
+					<li><a href=""> &nbsp; &nbsp; &nbsp; Service Management</a></li>
+					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Customer Management</a></li>
+					
+					
+					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
+					
+					
+					<li class="active"><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
+					<li><a href="logout.php"> &nbsp; &nbsp; &nbsp; Logout</a></li>
+					
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#"><i class="fa fa-calendar"></i>  <?php
+                            $Today=date('y:m:d');
+                            $new=date('l, F d, Y',strtotime($Today));
+                            echo $new; ?></a>
+                        
+                    </li>
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php   extract($_SESSION); echo $admin_username; ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <div id="page-wrapper">
             
@@ -65,9 +122,12 @@ if(!$_SESSION['admin_username'])
             <table class="display table table-bordered" id="example" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>Customer Email</th>
+                  
                   <th>Name</th>
 				  <th>Address</th>
+				  <th>City</th>
+				  <th>Contact</th>
+				  <th>Email</th>
                   <th>Actions</th>
                  
                 </tr>
@@ -87,23 +147,25 @@ include("config.php");
 			
 			?>
                 <tr>
-                  
-                 <td><?php echo $user_email; ?></td>
-				 <td><?php echo $user_firstname; ?> <?php echo $user_lastname; ?></td>
-				 <td><?php echo $user_address; ?></td>
+				<td><?php echo $c_name; ?></td>
+				<td><?php echo $c_add; ?></td>
+				<td><?php echo $c_city; ?></td>
+				<td><?php echo $c_contact; ?></td>
+                 <td><?php echo $c_email; ?></td>
+				 
 				 
 				 <td>
 				
 				 
 				
-				 <a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['user_id']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
-				  <a class="btn btn-warning" href="?order_id=<?php echo $row['user_id']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
+				 <a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
+				  <a class="btn btn-warning" href="?order_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
 				  <span class='glyphicon glyphicon-ban-circle'></span>
 				  Reset Order</a>
-				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php echo $row['user_id']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> 
+				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> 
 				
 				
-                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['user_id']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this customer?')">
+                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this customer?')">
 				  <span class='glyphicon glyphicon-trash'></span>
 				  Remove Account</a>
 				

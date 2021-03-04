@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2021 at 07:08 AM
+-- Generation Time: Mar 04, 2021 at 06:56 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -61,7 +61,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`c_name`, `c_add`, `c_city`, `c_contact`, `c_email`, `password`) VALUES
-('Debopriyo Ghosh', '1 R.M Ghose lane , mallick fatak howrah', 'Howrah', '08961376487', 'debopriyodjghosh@gmail.com', '12345');
+('Debopriyo Ghosh', '1 R.M Ghose lane , mallick fatak howrah', 'Howrah', '08961376487', 'debopriyodjghosh@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -71,15 +71,31 @@ INSERT INTO `customer` (`c_name`, `c_add`, `c_city`, `c_contact`, `c_email`, `pa
 
 CREATE TABLE `orderdetails` (
   `order_id` int(10) UNSIGNED NOT NULL,
+  `order_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `c_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `sp_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `order_add` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `order_price` double NOT NULL DEFAULT '0',
-  `order_quantity` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `order_total` double NOT NULL DEFAULT '0',
   `order_status` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `order_date` date NOT NULL DEFAULT '0000-00-00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`order_id`, `order_name`, `c_email`, `sp_email`, `order_add`, `order_price`, `order_status`, `order_date`) VALUES
+(15, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-26'),
+(16, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-23'),
+(17, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '', 334, 'Ordered_finished', '0000-00-00'),
+(18, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '', 334, 'Ordered_finished', '0000-00-00'),
+(19, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '', 334, 'Ordered_finished', '0000-00-00'),
+(20, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '', 334, 'Ordered_finished', '0000-00-00'),
+(22, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-10'),
+(23, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-17'),
+(24, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-10'),
+(25, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-28'),
+(26, 'Beautician', 'debopriyodjghosh@gmail.com', 'debopriyodjghosh@gmail.com', '1 R.M Ghose lane , mallick fatak howrah', 334, 'Ordered_finished', '2021-03-04');
 
 -- --------------------------------------------------------
 
@@ -89,7 +105,9 @@ CREATE TABLE `orderdetails` (
 
 CREATE TABLE `service` (
   `s_name` varchar(50) NOT NULL,
+  `s_price` int(10) DEFAULT NULL,
   `s_desc` text NOT NULL,
+  `s_img` varchar(255) DEFAULT NULL,
   `No_sp` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -97,9 +115,10 @@ CREATE TABLE `service` (
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`s_name`, `s_desc`, `No_sp`) VALUES
-('Beautician', 'make up, hair cutting etc.', 0),
-('Electric', 'All type of electrical work', 0);
+INSERT INTO `service` (`s_name`, `s_price`, `s_desc`, `s_img`, `No_sp`) VALUES
+('Beautician', 1200, 'make up, hair cutting etc.', '14231.jpg', 3),
+('Carpenter', 500, 'Carpenter can design your interior', '542182.jpg', 0),
+('Electric', 2500, 'All type of electrical work', '45968.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -120,6 +139,13 @@ CREATE TABLE `service_provider` (
   `s_name` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_provider`
+--
+
+INSERT INTO `service_provider` (`sp_name`, `sp_add`, `sp_contact`, `sp_email`, `sp_exp`, `sp_rate`, `sp_account_no`, `sp_IFSC_no`, `sp_city`, `s_name`, `password`) VALUES
+('Debopriyo Ghosh', '1 R.M Ghose lane , mallick fatak howrah', '08961376487', 'debopriyodjghosh@gmail.com', 1, 334, '1', '1', 'Howrah', 'Beautician', '123');
 
 --
 -- Indexes for dumped tables
@@ -170,7 +196,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables

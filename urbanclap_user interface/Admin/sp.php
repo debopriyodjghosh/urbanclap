@@ -8,31 +8,32 @@ if(!$_SESSION['admin_username'])
 }
 
 ?>
-
-
- 
 <?php
 
-	error_reporting( ~E_NOTICE );
-	
 	require_once 'config.php';
 	
-	if(isset($_GET['previous_id']) && !empty($_GET['previous_id']))
+	if(isset($_GET['delete_id']))
 	{
-		$view_id = $_GET['previous_id'];
-		$stmt_edit = $DB_con->prepare('SELECT * FROM users WHERE user_id=:user_id');
-		$stmt_edit->execute(array(':user_id'=>$view_id));
-		$edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
-		extract($edit_row);
+		$stmt_delete = $DB_con->prepare('DELETE FROM service_provider WHERE sp_email =:sp_email');
+		$stmt_delete->bindParam(':sp_email',$_GET['delete_id']);
+		$stmt_delete->execute();
+		header("Location: sp.php");
 	}
-	else
-	{
-		header("Location: customers.php");
-	}
-	
-	
 ?>
 
+<?php
+	require_once 'config.php';
+	
+	if(isset($_GET['order_id']))
+	{
+			$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
+		$stmt_delete->bindParam(':user_id',$_GET['order_id']);
+		$stmt_delete->execute();
+		
+		header("Location: customer.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,11 +67,11 @@ if(!$_SESSION['admin_username'])
                 <ul class="nav navbar-nav side-nav">
                     <li><a href="index.php"> &nbsp; &nbsp; &nbsp; Home</a></li>
 					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Add A Service</a></li>
-					<li><a href=""> &nbsp; &nbsp; &nbsp; Service Management</a></li>
+					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; Service Management</a></li>
 					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Customer Management</a></li>
 					
 					
-					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
+					<li><a href="sp.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
 					
 					
 					<li class="active"><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
@@ -96,13 +97,14 @@ if(!$_SESSION['admin_username'])
                 </ul>
             </div>
         </nav>
+
         <div id="page-wrapper">
             
 			
 	
 			 <div class="alert alert-danger">
                         
-                          <center> <h3><strong>Customer Previous Item Ordered</strong> </h3></center>
+                          <center> <h3><strong>Service provider Management</strong> </h3></center>
 						  
 						  </div>
 						  
@@ -112,18 +114,24 @@ if(!$_SESSION['admin_username'])
             <table class="display table table-bordered" id="example" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>Item</th>
-                  <th>Price</th>
-				  <th>Quantity</th>
-                  <th>Total</th>
-				  <th>Date Ordered</th>
+                  
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Email</th>
+				  <th>Service</th>
+				  <th>Exp</th>
+				  <th>Rate</th>
+                  <th>Ac.No</th>
+                  <th>IFSC</th>
+                  <th>City</th>
+                  <th>Actions</th>
                  
                 </tr>
               </thead>
               <tbody>
 			  <?php
 include("config.php");
-	$stmt = $DB_con->prepare("SELECT * FROM orderdetails where user_id='$user_id' and order_status='Ordered_Finished'");
+	$stmt = $DB_con->prepare('SELECT * FROM service_provider');
 	$stmt->execute();
 	
 	if($stmt->rowCount() > 0)
@@ -135,27 +143,37 @@ include("config.php");
 			
 			?>
                 <tr>
-                  
-                 <td><?php echo $order_name; ?></td>
-				 <td>&#8369; <?php echo $order_price; ?> </td>
-				 <td><?php echo $order_quantity; ?></td>
-				 <td>&#8369; <?php echo $order_total; ?></td>
-				  <td><?php echo $order_date; ?></td>
+				<td><?php echo $sp_name; ?></td>
+				<td><?php echo $sp_contact; ?></td>
+                <td><?php echo $sp_email; ?></td>
+				<td><?php echo $s_name; ?></td>
+				<td><?php echo $sp_exp; ?></td>
+                 <td><?php echo $sp_rate; ?></td>
+                 <td><?php echo $sp_account_no; ?></td>
+                 <td><?php echo $sp_IFSC_no; ?></td>
+                 <td><?php echo $sp_city; ?></td>
 				 
 				 
+				 <td>
+				
+				 
+				
+				 <!--<a class="btn btn-success" href="view_orders.php?view_id=<?php //echo $row['sp_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
+				  <a class="btn btn-warning" href="?order_id=<?php //echo $row['sp_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
+				  <span class='glyphicon glyphicon-ban-circle'></span>
+				  Reset Order</a>
+				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php //echo $row['sp_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a>-->
+				
+				
+                  <a class="btn btn-danger" href="?delete_id=<?php echo $row['sp_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this sp?')">
+				  <span class='glyphicon glyphicon-trash'></span>
+				  Remove Account</a>
+				
+                  </td>
                 </tr>
                
               <?php
 		}
-		echo "<tr>";
-		echo "<td colspan='4' align='center' style='font-size:18px;'>"."Customer Name: <span style='color:red;'>".$user_firstname." ".$user_lastname."</span> | "."Email: <span style='color:red;'>".$user_email."</span> | "."Address: <span style='color:red;'>".$user_address." </span>";
-		echo "</td>";
-		
-		echo "<td>"."<a class='btn btn-danger' href='customers.php'><span class='glyphicon glyphicon-backward'></span> Back<a/>";
-		echo "</td>";
-		
-		echo "</td>";
-		
 		echo "</tbody>";
 		echo "</table>";
 		echo "</div>";
@@ -178,7 +196,7 @@ include("config.php");
 			
         <div class="col-xs-12">
         	<div class="alert alert-warning">
-            	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No ordered items yet...
+            	<span class="glyphicon glyphicon-info-sign"></span> &nbsp; No Data Found ...
             </div>
         </div>
         <?php
@@ -269,7 +287,11 @@ include("config.php");
           </div>
         </div>
 		
-	
+		<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+	  $('#example').dataTable();
+	});
+    </script>
 	  	  <script>
    
     $(document).ready(function() {

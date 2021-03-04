@@ -274,9 +274,9 @@ session_start();
                 <div class="home-content">
 
                     <div class="text-1"> Hello, We are,</div>
-                    <div class="text-2"> Urban<span class="text-4"> services.</span></div>
+                    <div class="text-2"> Urban<span ></span><span class="text-4"> services.</span></div>
 
-                    <div class="text-3"> And we provide all services at your doorstep <span class="typing"></span></div>
+                    <div class="text-3"> And we provide <span class="typing"></span> service at your doorstep </div>
                     <a href="#">Book a service</a>
                 </div>
 
@@ -472,8 +472,8 @@ session_start();
 
     <!-- footer section start -->
     <footer>
-        <span>Created By <a href="https://www.codingnepalweb.com">CodingNepal</a> | <span
-                class="far fa-copyright"></span> 2020 All rights reserved.</span>
+        <span> By <a href="#">Group One</a> | <span
+                class="far fa-copyright"></span> 2021 B.Tech V SEM CU.</span>
     </footer>
 
 
