@@ -11,8 +11,8 @@ if(!$_SESSION['user_email'])
 <?php
  include("config.php");
  extract($_SESSION); 
-		  $stmt_edit = $DB_con->prepare('SELECT * FROM customer WHERE c_email =:user_email');
-		$stmt_edit->execute(array(':user_email'=>$c_email));
+		$stmt_edit = $DB_con->prepare('SELECT * FROM customer WHERE c_email =:user_email');
+		$stmt_edit->execute(array(':user_email'=>$user_email));
 		$edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
 		extract($edit_row);
 		
@@ -243,8 +243,8 @@ if(!$_SESSION['user_email'])
                         </div>
                         <p>Address:</p>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Address" name="c_address" type="text"
-                                value="<?php  echo $c_address; ?>" required>
+                            <input class="form-control" placeholder="Address" name="c_add" type="text"
+                                value="<?php  echo $c_add; ?>" required>
                         </div>
                         <p>City:</p>
                         <div class="form-group">
@@ -262,7 +262,7 @@ if(!$_SESSION['user_email'])
                                 value="<?php  echo $password; ?>" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control hide" name="c_email" type="text" value="<?php  echo $c_email; ?>"
+                            <input class="form-control hide" name="c_email" type="text" value="<?php  echo $user_email; ?>"
                                 required>
                         </div>
                     </fieldset>

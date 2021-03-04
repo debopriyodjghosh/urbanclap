@@ -13,14 +13,15 @@ include("db_conection.php");
 if(isset($_POST['user_save']))
 {
 
- $user_name=$_POST['user_name'];
- $user_lastname=$_POST['user_lastname'];
- $user_address=$_POST['user_address'];
- $user_password=$_POST['user_password'];
- $user_id=$_POST['user_id'];
+ $c_name=$_POST['c_name'];
+ $c_add=$_POST['c_add'];
+ $c_city=$_POST['c_city'];
+ $c_contact=$_POST['c_contact'];
+ $c_email=$_POST['c_email'];
+ $password=$_POST['password'];
  
  
-$update_profile="update customer set password='$user_password', c_name='$user_name', user_lastname='$user_lastname', user_address='$user_address' where user_id='$user_id'";
+$update_profile="update customer set password='$password', c_name='$c_name', c_add='$c_add', c_city='$c_city', c_contact='$c_contact' where c_email='$c_email'";
     if(mysqli_query($dbcon,$update_profile))
     {
 	echo "<script>alert('Account successfully updated!')</script>";

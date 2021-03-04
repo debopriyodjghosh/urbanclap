@@ -42,13 +42,13 @@ session_start();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="logo"><a class="navbar-brand" href="#">U<span>S.</span></a></div>
+            <div class="logo"><a class="navbar-brand" href="index.php">U<span>S.</span></a></div>
             <!--<a class="navbar-brand" href="#"><img class="logo-custom" src="assets/img/logoz.png" alt=""  /></a>-->
         </div>
 
         <div class="navbar-collapse collapse move-me">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home">HOME</a></li>
+                <!--<li><a href="#home">HOME</a></li>-->
                 <li><a href="#features-sec" data-toggle="modal" data-target="#an">
                         ADMIN
                     </a></li>
@@ -58,10 +58,11 @@ session_start();
                 <li><a href="#features-sec" data-toggle="modal" data-target="#ln">
                         SIGN IN
                     </a></li>
-                <li><a href="#features-sec" data-toggle="modal" data-target="#aa">
-                        Join Us
+                <li><a href="spregfrm.php">      SPREG
                     </a></li>
-                <li><a href="#course-sec">CONTACT US</a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#bn">    SPLOGIN
+                    </a></li>
+                <!--<li><a href="#course-sec">CONTACT US</a></li>-->
 
             </ul>
         </div>
@@ -71,7 +72,7 @@ session_start();
 
 <div class="modal fade" id="su" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
     <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#008CBA" class="modal-content">
+        <div style="color:white;background-color:#6e0a1e" class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -127,9 +128,10 @@ session_start();
 
 
 
+
 <div class="modal fade" id="ln" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
     <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#008CBA" class="modal-content">
+        <div style="color:white;background-color:#6e0a1e" class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -171,9 +173,53 @@ session_start();
     </div>
 </div>
 
+
+<!--SPlogin-->
+<div class="modal fade" id="bn" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div style="color:white;background-color:#6e0a1e" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 style="color:white" class="modal-title" id="myModalLabel">Service Provider Login</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form role="form" method="post" action="splogin.php">
+                    <fieldset>
+
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" name="user_email" type="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="user_password" type="password"
+                                required>
+                        </div>
+
+                    </fieldset>
+
+
+            </div>
+            <div class="modal-footer">
+
+                <button class="btn btn-md btn-warning btn-block" name="user_login">Sign In</button>
+
+                <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+
+                
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="an" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
     <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#008CBA" class="modal-content">
+        <div style="color:white;background-color:#6e0a1e" class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -252,7 +298,7 @@ session_start();
             <h2 class="title">About me</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="images/profile-1.jpeg" alt="">
+                    <img src="assets/img/profile-1.jpeg" alt="">
                 </div>
                 <div class="column right">
                     <div class="text">I'm Prakash and I'm a <span class="typing-2"></span></div>
