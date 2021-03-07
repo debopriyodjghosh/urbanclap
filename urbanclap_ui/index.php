@@ -440,7 +440,7 @@ session_start();
                     <div class="box">
                         <img src="assets/img/profile-5.jpg" alt="">
                         <div class="text">Srila Parui</div>
-                        <p>Kono Kaj korena</p>
+                        <p>Tester</p>
                     </div>
                 </div>
             </div>
