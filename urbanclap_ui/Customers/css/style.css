@@ -1,0 +1,158 @@
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+  
+  .navbar-left {
+    position: fixed;
+    background-color: #111111;
+    transition: width 600ms ease;
+    overflow: auto;
+    margin-left: -15px;
+    z-index: 100;
+  }
+  
+  .navbar-nav-left {
+    list-style: none;
+    padding: 2.5rem;
+    margin: 0;
+    margin-left: -13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  .nav-item {
+    width: 100%;
+    left: -10px!important;
+  }
+  
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: white;
+    text-decoration: none;
+    filter: grayscale(100%) opacity(1);
+    transition: var(--transition-speed);
+  }
+  
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+  
+  .nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .fa-primary {
+    color: #437fee;
+  }
+  
+  .fa-secondary {
+    color: #437fee;
+  }
+  
+  .fa-primary,
+  .fa-secondary {
+    transition: var(--transition-speed);
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+  }
+  
+  .logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+  }
+  
+  .logo-text
+  {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+  }
+  
+  .navbar-left:hover .logo svg {
+    transform: rotate(-180deg);
+  }
+  
+  /* Small screens */
+  @media only screen and (max-width: 600px) {
+    .navbar-left {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+      overflow: hidden;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-nav-left {
+      flex-direction: row;
+    }
+  
+    .nav-link {
+      justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 600px) {
+    .navbar-left {
+      top: 5rem;
+      width: 5rem;
+      height: 100vh;
+    }
+
+    .nav-link i {
+        font-size: 2rem;
+    }
+
+  
+    .navbar-left:hover {
+      width: 22rem;
+    }
+  
+    .navbar-left:hover .link-text {
+      display: inline;
+      padding-left: 20px;
+    }
+  
+    .navbar-left:hover .logo svg
+    {
+      margin-left: 11rem;
+    }
+  
+    .navbar-left:hover .logo-text
+    {
+      left: 0px;
+    }
+  }
