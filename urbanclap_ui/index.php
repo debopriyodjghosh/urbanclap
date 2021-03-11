@@ -49,8 +49,8 @@ session_start();
                     <li><a href="#features-sec" data-toggle="modal" data-target="#an">ADMIN</a></li>
                     <li><a href="#features-sec" data-toggle="modal" data-target="#su">SIGN UP  </a></li>
                     <li><a href="#features-sec" data-toggle="modal" data-target="#ln">SIGN IN</a></li>
-                    <li><a href="#features-sec" data-toggle="modal" data-target="#pu">SP SIGNUP</a></li>
-                    <li><a href="spregfrm.php"> SPREG </a></li>
+                    <!--<li><a href="#features-sec" data-toggle="modal" data-target="#pu">SP SIGNUP</a></li>-->
+                    <li><a href="spregfrm.php"> SP SIGNUP </a></li>
                     <li><a href="#features-sec" data-toggle="modal" data-target="#bn">SPLOGIN</a></li>
                     <!--<li><a href="#course-sec">CONTACT US</a></li>-->
 
@@ -137,50 +137,7 @@ session_start();
         </div>
     </div>
 
-<!--SP Regestration-->
-<div class="modal fade" id="pu" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
-        <div class="modal-dialog modal-sm">
-            <div style="color:white;background-color:#6e0a1e" class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Customer Registration Form</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form" method="post" action="register.php">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Name" name="c_name" type="text"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Address" name="c_address" type="text" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="City" name="c_city" type="text"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Mobile No" name="c_contact" type="text"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Email" name="c_email" type="email" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="c_password" type="password"
-                                    required>
-                            </div>
-                        </fieldset>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-md btn-warning btn-block" name="register">Sign Up</button>
-                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!--SPlogin-->
     <div class="modal fade" id="bn" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
         <div class="modal-dialog modal-sm">
