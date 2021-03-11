@@ -341,7 +341,7 @@ session_start();
         </div>
     </section>
 
-    <!--my teams-->
+    <!--my teams
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">My teams</h2>
@@ -383,7 +383,7 @@ session_start();
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!--testimonial section-->
     <div id="testimonials-sec" class="container set-pad" >

@@ -21,16 +21,11 @@ extract($edit_row);
 <?php
 include "nav.php";?>
         <div id="page-wrapper">
-
-
             <div class="alert alert-default" style="color:white;background-color:#008CBA">
                 <center>
                     <h3> <span class="glyphicon glyphicon-list-alt"></span> My Service Request</h3>
                 </center>
-            </div>
-
-            <br />
-
+            </div><br />
             <div class="table-responsive">
                 <table class="display table table-bordered" id="example" cellspacing="0" width="100%">
                     <thead>
@@ -38,42 +33,40 @@ include "nav.php";?>
                             <th>Service</th>
                             <th>Date</th>
                             <th>Address</th>
-                            <th>Price</th>
+                              <th>Price</th>
 							<th>Status</th>
-							
+                            <th>Customer Contact</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        include("config.php");
-
-                        $stmt = $DB_con->prepare("SELECT * FROM orderdetails where sp_email='$sp_email' ");
-                        $stmt->execute();
-
-                        if ($stmt->rowCount() > 0) {
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                extract($row);
-
-
-                        ?>
+                                <?php
+                                include("config.php");
+                                $stmt = $DB_con->prepare("SELECT * FROM orderdetails where sp_email='$sp_email' ");
+                                $stmt->execute();
+                                if ($stmt->rowCount() > 0) {
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        extract($row);
+                                ?>
                                 <tr>
-
                                     <td><?php echo $order_name; ?></td>
                                     <td><?php echo $order_date; ?> </td>
                                     <td><?php echo $order_add; ?></td>
                                     <td><?php echo $order_price; ?> </td>
 									<td><?php echo $order_status; ?> </td>
-									
+                                    <?php
+                                    include("config.php");
+                                    $stm = $DB_con->prepare("SELECT c_contact FROM customer where c_email=(select c_email from orderdetails where sp_email='$sp_email' and order_id='$order_id')");
+                                    $stm->execute();
+                                    if ($stm->rowCount() > 0) {
+                                        while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+                                            extract($row);}}
+                                      ?>
+                                      <td><?php echo $c_contact; ?></td>
                                 </tr>
-
-
+                                
                             <?php
-							
-							
                             }
-							
-						}
-						else {
+						}else {
                             ?>
                             <div class="col-xs-12">
                                 <div class="alert alert-warning">
@@ -82,18 +75,18 @@ include "nav.php";?>
                             </div>
                         <?php
                         }
-
                         ?>
+                        </tbody>
+                </table>
             </div>
         </div>
-    </div>
+        </div>
     </div>
     <!-- /#wrapper -->
-    <?php
+<?php
 include "updtprof.php";
 ?>
 		
-
     <script>
         $(document).ready(function() {
             $('#priceinput').keypress(function(event) {
