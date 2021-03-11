@@ -19,15 +19,15 @@
                 <h3>Service</h3>
                 <div style="input-group-prepend">
                 <?php
-                include("config.php");
-                $stmt_edit = $DB_con->prepare('SELECT DISTINCT s_name FROM service_provider');
-                $stmt_edit->execute();
-                $edit_row = $stmt_edit->fetchAll();
-                ?>
+include("config.php");
+$stmt_edit = $DB_con->prepare('SELECT DISTINCT s_name FROM service_provider');
+$stmt_edit->execute();
+$edit_row = $stmt_edit->fetchAll();
+?>
 
                 <!--<select class="form-control"  readonly>
                 <option>--SELECT Service--</option>-->
-                    <?php    foreach ($edit_row as $row) { ?>
+                    <?php foreach ($edit_row as $row) { ?>
 
                     <div class="list-group-item checkbox"><label><input type="checkbox" class="common_selector ram"
                                 value="<?php echo $row['s_name']; ?>"> <?php echo $row['s_name']; ?></label></div>
@@ -35,7 +35,7 @@
                     <?php #echo "<option class='common_selector brand' value='" . $row['s_name'] . "'>" . $row['s_name'] . "</option>";
 
 
-                    }?>
+}?>
         <!--</select>-->
         </div>
         </div>
@@ -47,19 +47,20 @@
                     
                     
                     <?php include("config.php");
-                    $stmt_edit = $DB_con->prepare('SELECT DISTINCT sp_city FROM service_provider');
-                    $stmt_edit->execute();
-                    $edit_row = $stmt_edit->fetchAll();
-                    extract($edit_row); ?>
+$stmt_edit = $DB_con->prepare('SELECT DISTINCT sp_city FROM service_provider');
+$stmt_edit->execute();
+$edit_row = $stmt_edit->fetchAll();
+extract($edit_row); ?>
 
 
 
                             <!--<select class="form-control" name="sp_city" readonly>
                             <option>--SELECT city--</option>-->
-                    <?php    foreach ($edit_row as $row) { ?>
+                    <?php foreach ($edit_row as $row) { ?>
                                 <?php #echo "<option class='common_selector ram' value='" . $row['sp_city'] . "'>" . $row['sp_city'] . "</option>"; ?>      
                                 <div class="list-group-item checkbox"><label><input type="checkbox" class="common_selector brand" value="<?php echo $row['sp_city']; ?>"  > <?php echo $row['sp_city']; ?></label>     </div>
-                    <?php  }?>
+                    <?php
+}?>
                             <!--</select>-->
                         </div>
             </div>

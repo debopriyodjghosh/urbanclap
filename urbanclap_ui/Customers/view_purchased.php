@@ -89,7 +89,7 @@ include 'nav.php';
                     echo "<br />";
                     echo '<div class="alert alert-default" style="background-color:#033c73;">
                        <p style="color:white;text-align:center;">
-                       &copy 2016 Urban Services| All Rights Reserved |  Design by : EDGE Team
+                       By Group One |  2021 B.Tech V SEM CU.
 
 						</p>
                         

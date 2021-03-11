@@ -31,14 +31,7 @@ if (isset($_GET['update_id'])) {
 }
 
 ?>
-<?php
-include("config.php");
-#$stmt_edit = $DB_con->prepare("select sum(order_total) as total from orderdetails where user_id=:user_id and order_status='Ordered'");
-#$stmt_edit->execute(array(':user_id'=>$user_id));
-#$edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
-#extract($edit_row);
 
-?>
 <?php
 include "nav.php";?>
         <div id="page-wrapper">
@@ -100,18 +93,20 @@ include "nav.php";?>
                             echo "<td>&#8377; " . $totalx;
                             echo "</td>";
                             echo "</tr>";
+
                             echo "<tr>";
-                            echo "<td>";
-                            echo "<a class='btn btn-block btn-success' href='?update_id=" . $user_email . "' ><span class='glyphicon glyphicon-shopping-cart'></span> Pay Now!</a>";
-                            echo "</td>";
+                            
+                            
+                           
                             echo "</tr>";
 
                             echo "</tbody>";
                             echo "</table>";
+                            echo "<a class='btn btn-block btn-success' href='?update_id=" . $user_email . "' ><span class='glyphicon glyphicon-shopping-cart'></span> Pay Now!</a>";
                             echo "</div>";
                             echo "<br />";
                             echo '<div class="alert alert-default" style="background-color:#033c73;">       <p style="color:white;text-align:center;">
-                       &copy 2016 Urban Services| All Rights Reserved |  Design by : EDGE Team</p> </div></div>';
+                            By Group One |  2021 B.Tech V SEM CU.</p> </div></div>';
                             echo "</div>";
                         } else {
                             ?>
@@ -134,6 +129,12 @@ include "nav.php";?>
     <?php
 include "edit_ac.php";
 ?>
+		
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+	  $('#example').dataTable();
+	});
+    </script>
     <script>
         $(document).ready(function() {
             $('#priceinput').keypress(function(event) {

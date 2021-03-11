@@ -1,80 +1,68 @@
-<?php
-session_start();
-
-if(!$_SESSION['admin_username'])
-{
-
-    header("Location: ../index.php");//redirect to login page to secure the welcome page without login access.
-}
-
-?>
-
-<?php
-include("db_conection.php");
-
-if(isset($_POST['service_save']))
-{
-$s_name = $_POST['s_name'];
-$s_price = $_POST['s_price'];
-$s_desc = $_POST['s_desc'];
-
- 
- $check_item="select * from service WHERE s_name='$s_name'";
-    $run_query=mysqli_query($dbcon,$check_item);
-
-    if(mysqli_num_rows($run_query)>0)
-    {
-echo "<script>alert('Service is already exist, Please try another one!')</script>";
- echo"<script>window.open('index.php','_self')</script>";
-exit();
-    }
- 
-$imgFile = $_FILES['item_image']['name'];
-$tmp_dir = $_FILES['item_image']['tmp_name'];
-$imgSize = $_FILES['item_image']['size'];
-
-$upload_dir = 'service_images/';
-$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); 
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); 
-$itempic = rand(1000,1000000).".".$imgExt;
-
-
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+          <div class="modal-dialog modal-md">
+            <div style="color:white;background-color:#008CBA" class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 style="color:white" class="modal-title" id="myModalLabel">Add a Service</h2>
+              </div>
+              <div class="modal-body">
+         
 				
-	
-			if(in_array($imgExt, $valid_extensions)){			
-		
-				if($imgSize < 5000000)				{
-					move_uploaded_file($tmp_dir,$upload_dir.$itempic);
-					$saveitem="insert into service (s_name,s_price,s_desc,s_img) VALUE ('$s_name','$s_price','$s_desc','$itempic')";
-					mysqli_query($dbcon,$saveitem);
-					 echo "<script>alert('Data successfully saved!')</script>";				
-					 echo "<script>window.open('items.php','_self')</script>";
-				}
-				else{
+			
+				
+				 <form enctype="multipart/form-data" method="post" action="addservice.php">
+                   <fieldset>
 					
-					 echo "<script>alert('Sorry, your file is too large.')</script>";				
-					 echo "<script>window.open('items.php','_self')</script>";
-				}
-			}
-			else{
+						
+                            <p>Name of Service:</p>
+                            <div class="form-group">
+							
+                                <input class="form-control" placeholder="Name of Service" name="s_name" type="text" required>
+                           
+							 
+							</div>
+							
+							
+							
+							
+							<p>Price:</p>
+                            <div class="form-group">
+							
+                                <input id="priceinput" class="form-control" placeholder="Minimum Price" name="s_price" type="text" required>
+                           
+							 
+							</div>
+                            <p>Description:</p>
+                            <div class="form-group">
+							
+                                <input class="form-control" placeholder="Description" name="s_desc" type="text" required>
+                           
+							 
+							</div>
+							
+							
+							<p>Choose Image:</p>
+							<div class="form-group">
+						
+							 
+                                <input class="form-control"  type="file" name="item_image" accept="image/*" required/>
+                           
+							</div>
+				   
+				   
+					 </fieldset>
+                  
+            
+              </div>
+              <div class="modal-footer">
+               
+                <button class="btn btn-success btn-md" name="service_save">Save</button>
 				
-				 echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.')</script>";				
-					 echo "<script>window.open('items.php','_self')</script>";
+				 <button type="button" class="btn btn-danger btn-md" data-dismiss="modal">Cancel</button>
 				
-			}
-		
-	
-		
-
-}
-
-?>
-
-
-
-
-
-
-
-
-
+				
+				   </form>
+              </div>
+            </div>
+          </div>
+        </div>

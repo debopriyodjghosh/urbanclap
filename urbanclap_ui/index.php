@@ -4,7 +4,6 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -12,14 +11,12 @@ session_start();
     <meta name="author" content="" />
     <title>Urban Services</title>
     <link rel="shortcut icon" href="assets/img/title.png" type="image/x-icon" />
-
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -34,262 +31,244 @@ session_start();
 </head>
 
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top " id="menu">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="logo"><a class="navbar-brand" href="index.php">U<span>S.</span></a></div>
-            <!--<a class="navbar-brand" href="#"><img class="logo-custom" src="assets/img/logoz.png" alt=""  /></a>-->
-        </div>
-
-        <div class="navbar-collapse collapse move-me">
-            <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="#home">HOME</a></li>-->
-                <li><a href="#features-sec" data-toggle="modal" data-target="#an">
-                        ADMIN
-                    </a></li>
-                <li><a href="#features-sec" data-toggle="modal" data-target="#su">
-                        SIGN UP
-                    </a></li>
-                <li><a href="#features-sec" data-toggle="modal" data-target="#ln">
-                        SIGN IN
-                    </a></li>
-                <li><a href="spregfrm.php">      SPREG
-                    </a></li>
-                    <li><a href="#features-sec" data-toggle="modal" data-target="#bn">    SPLOGIN
-                    </a></li>
-                <!--<li><a href="#course-sec">CONTACT US</a></li>-->
-
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="su" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
-    <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#6e0a1e" class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Curtomer Registration Form</h4>
+    <!--Nav Bar-->
+    <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo"><a class="navbar-brand" href="index.php">U<span>S.</span></a></div>
+                <!--<a class="navbar-brand" href="#"><img class="logo-custom" src="assets/img/logoz.png" alt=""  /></a>-->
             </div>
-            <div class="modal-body">
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><a href="#home">HOME</a></li>-->
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#an">ADMIN</a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#su">SIGN UP  </a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#ln">SIGN IN</a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#pu">SP SIGNUP</a></li>
+                    <li><a href="spregfrm.php"> SPREG </a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#bn">SPLOGIN</a></li>
+                    <!--<li><a href="#course-sec">CONTACT US</a></li>-->
 
-
-                <form role="form" method="post" action="register.php">
-                    <fieldset>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Name" name="c_name" type="text"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Address" name="c_address" type="text" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="City" name="c_city" type="text"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Mobile No" name="c_contact" type="text"
-                                required>
-                        </div>
-                                             
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Email" name="c_email" type="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="c_password" type="password"
-                                required>
-                        </div>
-
-                    </fieldset>
-
-
-            </div>
-            <div class="modal-footer">
-
-                <button class="btn btn-md btn-warning btn-block" name="register">Sign Up</button>
-
-                <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
-                </form>
+                </ul>
             </div>
         </div>
     </div>
-</div>
 
-
-
-
-<div class="modal fade" id="ln" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
-    <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#6e0a1e" class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 style="color:white" class="modal-title" id="myModalLabel">Customer Login</h4>
-            </div>
-            <div class="modal-body">
-
-
-                <form role="form" method="post" action="userlogin.php">
-                    <fieldset>
-
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Email" name="user_email" type="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="user_password" type="password"
-                                required>
-                        </div>
-
-                    </fieldset>
-
-
-            </div>
-            <div class="modal-footer">
-
-                <button class="btn btn-md btn-warning btn-block" name="user_login">Sign In</button>
-
-                <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
-
-                <button type="button" class="btn btn-md btn-warning btn-block" a href="#features-sec"
-                    data-toggle="modal" data-target="#su" data-dismiss="modal">Don't Have An Account ? Sign Up
-                    Now</button>
-                </form>
-
+    <!--customer Regestration-->
+    <div class="modal fade" id="su" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div style="color:white;background-color:#6e0a1e" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Customer Registration Form</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="creg.php">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Name" name="c_name" type="text"                         required>                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Address" name="c_address" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="City" name="c_city" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Mobile No" name="c_contact" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" name="c_email" type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="c_password" type="password"
+                                    required>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-md btn-warning btn-block" name="register">Sign Up</button>
+                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!--SPlogin-->
-<div class="modal fade" id="bn" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
-    <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#6e0a1e" class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 style="color:white" class="modal-title" id="myModalLabel">Service Provider Login</h4>
-            </div>
-            <div class="modal-body">
 
-
-                <form role="form" method="post" action="splogin.php">
-                    <fieldset>
-
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Email" name="user_email" type="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="user_password" type="password"
-                                required>
-                        </div>
-
-                    </fieldset>
-
-
-            </div>
-            <div class="modal-footer">
-
-                <button class="btn btn-md btn-warning btn-block" name="user_login">Sign In</button>
-
-                <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
-
-                
-                </form>
-
+    <!--Customer login-->
+    <div class="modal fade" id="ln" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div style="color:white;background-color:#6e0a1e" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 style="color:white" class="modal-title" id="myModalLabel">Customer Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="userlogin.php">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" name="user_email" type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="user_password" type="password"
+                                    required>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-md btn-warning btn-block" name="user_login">Sign In</button>
+                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-md btn-warning btn-block" a href="#features-sec"
+                        data-toggle="modal" data-target="#su" data-dismiss="modal">Don't Have An Account ? Sign Up
+                        Now</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="an" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
-    <div class="modal-dialog modal-sm">
-        <div style="color:white;background-color:#6e0a1e" class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 style="color:white" class="modal-title" id="myModalLabel">Administrator Credentials</h4>
-            </div>
-            <div class="modal-body">
-
-
-                <form role="form" method="post" action="adminlogin.php">
-                    <fieldset>
-
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Username" name="admin_username" type="text"
-                                required>
-                        </div>
-
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="admin_password" type="password"
-                                required>
-                        </div>
-
-                    </fieldset>
-
-
-            </div>
-            <div class="modal-footer">
-
-                <button class="btn btn-md btn-warning btn-block" name="admin_login">Login</button>
-
-                <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
-                </form>
+<!--SP Regestration-->
+<div class="modal fade" id="pu" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div style="color:white;background-color:#6e0a1e" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Customer Registration Form</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="register.php">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Name" name="c_name" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Address" name="c_address" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="City" name="c_city" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Mobile No" name="c_contact" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" name="c_email" type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="c_password" type="password"
+                                    required>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-md btn-warning btn-block" name="register">Sign Up</button>
+                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!--SPlogin-->
+    <div class="modal fade" id="bn" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div style="color:white;background-color:#6e0a1e" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 style="color:white" class="modal-title" id="myModalLabel">Service Provider Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="splogin.php">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" name="user_email" type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="user_password" type="password"
+                                    required>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-md btn-warning btn-block" name="user_login">Sign In</button>
+                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Admin Login-->
+    <div class="modal fade" id="an" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div style="color:white;background-color:#6e0a1e" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 style="color:white" class="modal-title" id="myModalLabel">Administrator Credentials</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="adminlogin.php">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Username" name="admin_username" type="text"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="admin_password" type="password"
+                                    required>
+                            </div>
+                        </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-md btn-warning btn-block" name="admin_login">Login</button>
+                    <button type="button" class="btn btn-md btn-success btn-block" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-<!-- home section start -->
+    <!-- home section start -->
+    <div class="home-sec" id="home">
+        <div class="overlay">
+            <div class="home" id="home">
 
+                <div class="max-width">
 
+                    <div class="home-content">
 
-<!--HOME SECTION END-->
+                        <div class="text-1"> Hello, We are,</div>
+                        <div class="text-2"> Urban<span ></span><span class="text-4"> services.</span></div>
 
+                        <div class="text-3"> And we provide <span class="typing"></span> service at your doorstep </div>
+                        <a href="#">Book a service</a>
+                    </div>
 
-<div class="home-sec" id="home">
-    <div class="overlay">
-        <div class="home" id="home">
-
-            <div class="max-width">
-
-                <div class="home-content">
-
-                    <div class="text-1"> Hello, We are,</div>
-                    <div class="text-2"> Urban<span ></span><span class="text-4"> services.</span></div>
-
-                    <div class="text-3"> And we provide <span class="typing"></span> service at your doorstep </div>
-                    <a href="#">Book a service</a>
                 </div>
 
             </div>
-
         </div>
+
     </div>
 
-</div>
-
- <!-- services section start -->
- <style>body {
+    <!-- services Style script css -->
+    <style>body {
     background-color: #eee
 }
 
@@ -306,7 +285,9 @@ session_start();
 .card span {
     font-size: 14px
 }</style>
-<section class="teams" id="teams">
+
+    <!--Services-->
+    <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">Our Services</h2>
  <div class="container bg-white mt-5 p-3">
@@ -378,8 +359,6 @@ session_start();
 </div>
 </section>
 
-
-    
     <!-- about section start -->
     <section class="about" id="about">
         <div class="max-width">
@@ -394,7 +373,7 @@ session_start();
                         When you need help with small but important household chores, isn't it practically 
                         impossible to find trusted providers, who deliver consistently impeccable service, on time?
                          Yes, that happened with us too. All the time. After trying dozens of other services which 
-                         were just glorified directories, we decided to build Helpr. US is the most convenient 
+                         were just glorified directories, we decided to build US. US is the most convenient 
                          and hassle free way to get your household work done. With handcrafted mobile solutions, 
                          unmatched service quality, and background verified providers who are always willing to 
                          lend a hand, we aim to aid in solving all your household problems with efficiency, ease 
@@ -404,6 +383,8 @@ session_start();
             </div>
         </div>
     </section>
+
+    <!--my teams-->
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">My teams</h2>
@@ -446,6 +427,8 @@ session_start();
             </div>
         </div>
     </section>
+
+    <!--testimonial section-->
     <div id="testimonials-sec" class="container set-pad" >
              <div class="row text-center">
                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
@@ -456,7 +439,7 @@ session_start();
                  </div>
 
              </div>
-             <!--/.HEADER LINE END-->
+            
 
 
            <div class="row" >
@@ -533,7 +516,7 @@ session_start();
             <div class="skills-content">
                 <div class="column left">
                     <div class="text">Things that make Urban Services the ideal partner for home maintenance</div>
-                    <p>With over 22,000 trained and police verified professionals, the idea is not just to bring household services to your doosrstep. It's also to do so with the highest quality assurance. Steps that are not exactly a commonplace in the household service space. And it's not just the services that you avail with Helpr. It's also the expert consultation to assess your requirements backed by the fair practices to ensure thos requirements are met. And the best way to enjoy all these and more is with the unique subsctiption plans from Helpr. Offering your services of choice for an entire year and a fair share of cost advantage!</p>
+                    <p>With over 22,000 trained and police verified professionals, the idea is not just to bring household services to your doosrstep. It's also to do so with the highest quality assurance. Steps that are not exactly a commonplace in the household service space. And it's not just the services that you avail with US. It's also the expert consultation to assess your requirements backed by the fair practices to ensure thos requirements are met. And the best way to enjoy all these and more is with the unique subsctiption plans from US. Offering your services of choice for an entire year and a fair share of cost advantage!</p>
                     <!--<a href="#">Read more</a>-->
                 </div>
                 <div class="column right">
@@ -578,9 +561,7 @@ session_start();
     </section>
 
     <!-- teams section start -->
-    
-            
-<section class="teams" id="teams">
+    <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">Our Services</h2>
  <div class="container bg-white mt-5 p-3">
@@ -718,11 +699,6 @@ session_start();
                 class="far fa-copyright"></span> 2021 B.Tech V SEM CU.</span>
     </footer>
 
-
-    <!-- Script -->
-
-
-    <!-- FOOTER SECTION END-->
 
     <!--  Jquery Core Script -->
     <script src="assets/js/jquery-1.10.2.js"></script>

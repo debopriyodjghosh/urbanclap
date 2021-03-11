@@ -29,7 +29,8 @@ if (isset($_GET['cart']) && !empty($_GET['cart'])) {
     $stmt_edit->execute(array(':sp_email' => $id));
     $edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
     extract($edit_row);
-} else {
+}
+else {
     header("Location: shop.php");
 }
 
@@ -37,18 +38,18 @@ if (isset($_GET['cart']) && !empty($_GET['cart'])) {
 ?>
 
 <?php
-include "nav.php";?>
+include "nav.php"; ?>
 
 
         <div id="page-wrapper">
 
             <form role="form" method="post" action="save_order.php">
                 <?php
-                if (isset($errMSG)) {
-                ?>
+if (isset($errMSG)) {
+?>
                 <?php
-                }
-                ?>
+}
+?>
                 <div class="alert alert-default" style="color:white;background-color:#008CBA">
                     <center>
                         <h3> <span class="glyphicon glyphicon-info-sign"></span> Order Details</h3>
@@ -91,7 +92,7 @@ include "nav.php";?>
                         <!--<td><label class="control-label">Image.</label></td>
                             <td>
                                 <p><img class="img img-thumbnail" src="../Admin/item_images/<?php //echo $item_image; 
-                                                                                            ?>" style="height:250px;width:350px;" /></p>
+?>" style="height:250px;width:350px;" /></p>
                             </td>
                                 <tr>
                             <td><label class="control-label">Quantity.</label></td>
@@ -129,22 +130,17 @@ include "nav.php";?>
 
             <div class="alert alert-default" style="background-color:#033c73;">
                 <p style="color:white;text-align:center;">
-                    &copy 2016 Urban Services| All Rights Reserved | Design by : EDGE Team
+                <span> By <a href="#">Group One</a> | <span
+                class="far fa-copyright"></span> 2021 B.Tech V SEM CU.</span>
 
                 </p>
 
             </div>
+            
 
         </div>
     </div>
-
-
-
-
     </div>
-
-
-
     </div>
     <!-- /#wrapper -->
     <?php

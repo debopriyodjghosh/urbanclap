@@ -18,9 +18,12 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!--search-->
+    
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
+   
     
     <link href = "css/jquery-ui.css" rel = "stylesheet">
 
@@ -57,22 +60,22 @@
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <!-- <li class="dropdown messages-dropdown">
                         <a href="#"><i class="fa fa-calendar"></i>  <?php
-                                                                    // $Today=date('y:m:d');
-                                                                    // $new=date('l, F d, Y',strtotime($Today));
-                                                                    // echo $new; 
-                                                                    ?></a>
+// $Today=date('y:m:d');
+// $new=date('l, F d, Y',strtotime($Today));
+// echo $new; 
+?></a>
                         
                     </li> 
 					<li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-shopping-cart'></span> Total Price Ordered: &#8369; <?php //echo $total; 
-                                                                                                                                                                        ?> </b></a>
+?> </b></a>
                        
                     </li>-->
 
 
                     <!-- <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php //echo $user_email; 
-                                                                                                                ?><b class="caret"></b></a>
+?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a data-toggle="modal" data-target="#setAccount"><i class="fa fa-gear"></i> Settings</a></li>
                             <li class="divider"></li>

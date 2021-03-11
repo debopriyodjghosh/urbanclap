@@ -32,14 +32,14 @@
                 <ul class="nav navbar-nav side-nav">
                     <li><a href="index.php"> &nbsp; &nbsp; &nbsp; Home</a></li>
 					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Add A Service</a></li>
-					<li><a href=""> &nbsp; &nbsp; &nbsp; Service Management</a></li>
+					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; Service Management</a></li>
 					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Customer Management</a></li>
 					
 					
-					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
+					<li><a href="sp.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
 					
 					
-					<li class="active"><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
+					<li ><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
 					<li><a href="logout.php"> &nbsp; &nbsp; &nbsp; Logout</a></li>
 					
                     

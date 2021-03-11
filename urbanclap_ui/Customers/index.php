@@ -126,7 +126,8 @@ include "nav.php";
 
     <div class="alert alert-default" style="background-color:#033c73;">
         <p style="color:white;text-align:center;">
-            &copy 2016 Urban Services| All Rights Reserved | Design by : EDGE Team
+            <span> By <a href="#">Group One</a> | <span
+                class="far fa-copyright"></span> 2021 B.Tech V SEM CU.</span>
 
         </p>
 
