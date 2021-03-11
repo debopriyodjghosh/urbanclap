@@ -116,11 +116,7 @@ include "nav.php";
     <br />
     <div class="alert alert-info">
 
-        &nbsp; &nbsp; Welcome to Urban Services! So, if you're looking for an Element skateboard, why not visit the Urban Services?
-        It's that easy. If you have a favorite skate brand,
-        this is the easiest and most straightforward way to get it.A lot of skate brands who are well known for one thing,
-        like decks, also sell completes with
-        their own special wheels, along with other brands for things like trucks, bearings, etc.
+        &nbsp; &nbsp; Like all good things, the idea of Urban Services was born out of necessity. When you need help with small but important household chores, isn't it practically impossible to find trusted providers, who deliver consistently impeccable service, on time? Yes, that happened with us too. All the time. After trying dozens of other services which were just glorified directories, we decided to build US. US is the most convenient and hassle free way to get your household work done. With handcrafted mobile solutions, unmatched service quality, and background verified providers who are always willing to lend a hand, we aim to aid in solving all your household problems with efficiency, ease and most importantly, a personal touch.
     </div>
     <br />
 

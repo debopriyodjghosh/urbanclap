@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Urban Services - Administrator Panel</a>
+                <a class="navbar-brand" href="index.php">US - Administrator Panel</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -36,10 +36,11 @@
 					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Customer Management</a></li>
 					
 					
-					<li><a href="sp.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
+					<li><a href="sp.php"> &nbsp; &nbsp; &nbsp; S.P. Management</a></li>
 					
 					
 					<li ><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
+                    <li ><a href="chart.php"> &nbsp; &nbsp; &nbsp; Report & Statistics</a></li>
 					<li><a href="logout.php"> &nbsp; &nbsp; &nbsp; Logout</a></li>
 					
                     

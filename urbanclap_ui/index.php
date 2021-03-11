@@ -46,12 +46,14 @@ session_start();
             <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
                     <!--<li><a href="#home">HOME</a></li>-->
-                    <li><a href="#features-sec" data-toggle="modal" data-target="#an">ADMIN</a></li>
+                  
+                    
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#ln">LOG IN</a></li>
                     <li><a href="#features-sec" data-toggle="modal" data-target="#su">SIGN UP  </a></li>
-                    <li><a href="#features-sec" data-toggle="modal" data-target="#ln">SIGN IN</a></li>
                     <!--<li><a href="#features-sec" data-toggle="modal" data-target="#pu">SP SIGNUP</a></li>-->
-                    <li><a href="spregfrm.php"> SP SIGNUP </a></li>
-                    <li><a href="#features-sec" data-toggle="modal" data-target="#bn">SPLOGIN</a></li>
+                    <li><a href="spregfrm.php"> SP REG </a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#bn">SP LOGIN</a></li>
+                    <li><a href="#features-sec" data-toggle="modal" data-target="#an">ADMIN</a></li>
                     <!--<li><a href="#course-sec">CONTACT US</a></li>-->
 
                 </ul>
@@ -214,7 +216,7 @@ session_start();
                         <div class="text-2"> Urban<span ></span><span class="text-4"> services.</span></div>
 
                         <div class="text-3"> And we provide <span class="typing"></span> service at your doorstep </div>
-                        <a href="#">Book a service</a>
+                        <a href="#features-sec" data-toggle="modal" data-target="#ln">Book a service</a>
                     </div>
 
                 </div>
@@ -626,7 +628,7 @@ session_start();
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#">
+                    <form action="error.html">
                         <div class="fields">
                             <div class="field name">
                                 <input type="text" placeholder="Name" required>
@@ -652,7 +654,7 @@ session_start();
 
     <!-- footer section start -->
     <footer>
-        <span> By <a href="#">Group One</a> | <span
+        <span> By <a href="error.html">Group One</a> | <span
                 class="far fa-copyright"></span> 2021 B.Tech V SEM CU.</span>
     </footer>
 

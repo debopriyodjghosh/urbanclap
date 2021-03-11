@@ -34,11 +34,11 @@
 					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Update Profile</a></li>
 
 					<li><a href="view_orders.php"> &nbsp; &nbsp; &nbsp; Service Request</a></li>
-                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Payment Details</a></li>
+                    <li ><a href="#"> &nbsp; &nbsp; &nbsp; Payment Details</a></li>
 
-					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Tender List</a></li>
-                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Bid for tender</a></li>
-                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Ongoing Tender</a></li>
+					<li ><a href="#"> &nbsp; &nbsp; &nbsp; Tender List</a></li>
+                    <li ><a href="#"> &nbsp; &nbsp; &nbsp; Bid for tender</a></li>
+                    <li ><a href="#"> &nbsp; &nbsp; &nbsp; Ongoing Tender</a></li>
                     
 				
 					<li><a href="logout.php"> &nbsp; &nbsp; &nbsp; Logout</a></li>
