@@ -1,45 +1,40 @@
 <?php
 session_start();
 
-if(!$_SESSION['admin_username'])
+if (!$_SESSION['admin_username']) 
 {
 
-    header("Location: ../index.php");
+	header("Location: ../index.php");
 }
 
 ?>
 <?php
 
-	require_once 'config.php';
-	
-	if(isset($_GET['delete_id']))
-	{
-		
-		
-		
-	
-		$stmt_delete = $DB_con->prepare('DELETE FROM customer WHERE c_email =:c_email');
-		$stmt_delete->bindParam(':c_email',$_GET['delete_id']);
-		$stmt_delete->execute();
-		
-		header("Location: customers.php");
-	}
+require_once 'config.php';
+
+if (isset($_GET['delete_id'])) {
+
+	$stmt_delete = $DB_con->prepare('DELETE FROM customer WHERE c_email =:c_email');
+	$stmt_delete->bindParam(':c_email', $_GET['delete_id']);
+	$stmt_delete->execute();
+
+	header("Location: customers.php");
+}
 
 ?>
 
 <?php
 
-	require_once 'config.php';
-	
-	if(isset($_GET['order_id']))
-	{
-		
-			$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
-		$stmt_delete->bindParam(':user_id',$_GET['order_id']);
-		$stmt_delete->execute();
-		
-		header("Location: customers.php");
-	}
+require_once 'config.php';
+
+if (isset($_GET['order_id'])) {
+
+	$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
+	$stmt_delete->bindParam(':user_id', $_GET['order_id']);
+	$stmt_delete->execute();
+
+	header("Location: customers.php");
+}
 
 ?><?php
 include "nav.php";
@@ -50,12 +45,7 @@ include "nav.php";
 			
 	
 			 <div class="alert alert-danger">
-                        
-                          <center> <h3><strong>Customer Management</strong> </h3></center>
-						  
-						  </div>
-						  
-						  <br />
+                          <center> <h3><strong>Customer Management</strong> </h3></center>  </div>	  <br />
 						  
 						  <div class="table-responsive">
             <table class="display table table-bordered" id="example" cellspacing="0" width="100%">
@@ -74,17 +64,15 @@ include "nav.php";
               <tbody>
 			  <?php
 include("config.php");
-	$stmt = $DB_con->prepare('SELECT * FROM customer');
-	$stmt->execute();
-	
-	if($stmt->rowCount() > 0)
-	{
-		while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-		{
-			extract($row);
-			
-			
-			?>
+$stmt = $DB_con->prepare('SELECT * FROM customer');
+$stmt->execute();
+
+if ($stmt->rowCount() > 0) {
+	while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		extract($row);
+
+
+?>
                 <tr>
 				<td><?php echo $c_name; ?></td>
 				<td><?php echo $c_add; ?></td>
@@ -112,24 +100,23 @@ include("config.php");
                 </tr>
                
               <?php
-		}
-		echo "</tbody>";
-		echo "</table>";
-		echo "</div>";
-		echo "<br />";
-		echo '<div class="alert alert-default" style="background-color:#033c73;">
+	}
+	echo "</tbody>";
+	echo "</table>";
+	echo "</div>";
+	echo "<br />";
+	echo '<div class="alert alert-default" style="background-color:#033c73;">
                        <p style="color:white;text-align:center;">
                        By Group One |  2021 B.Tech V SEM CU.
 						</p>
                         
                     </div>
 	</div>';
-	
-		echo "</div>";
-	}
-	else
-	{
-		?>
+
+	echo "</div>";
+}
+else {
+?>
 		
 			
         <div class="col-xs-12">
@@ -138,8 +125,9 @@ include("config.php");
             </div>
         </div>
         <?php
-	}
-	
+}
+
+
 ?>
 		
 	</div>

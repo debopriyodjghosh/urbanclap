@@ -26,18 +26,17 @@ $sql = "INSERT INTO `service_provider`( `sp_name`, `sp_add`, `sp_contact`, `sp_e
 if ($dbcon->query($sql) === TRUE) {
 	$sql = "UPDATE service set No_sp =No_sp + 1 where s_name='$s_name'";
 	$result = $dbcon->query($sql);
-?>
-<label style="color:#FF6347"><b>success</b></label>
-<?php
+	echo "<script>alert('You are registered successfully!')</script>";
+	#header("Location: index.php");
+	?>
+	
+	<a href="index.php"><h2>Back to home</h2></a><?php
+
 }
 else {
-
-
-
-?>	<label style="color:#FF6347">
-<b>User Already Exists, Try with Different ID<br>or<br>Wrong Info Provided</b>
-</label>      
-<?php
+echo "<script>alert('Try with different id. You are already registered !')</script>";?>
+<a href="spregfrm.php"><h2>Back to previous page</h2></a>   
+<?php 
 }
 ?>
 </html>

@@ -11,7 +11,7 @@ include("db_conection.php");
 
 if(isset($_POST['user_login']))
 {
-    $sp_email=$_POST['user_email'];
+    $sp_email=$_POST['sp_email'];
     $password=$_POST['user_password'];
 	
 
@@ -27,7 +27,7 @@ if(isset($_POST['user_login']))
        
  echo "<script>window.open('sp/index.php','_self')</script>";
        
-$_SESSION['user_email']=$sp_email;
+$_SESSION['sp_email']=$sp_email;
 
 
 

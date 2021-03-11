@@ -151,7 +151,7 @@ session_start();
                     <form role="form" method="post" action="splogin.php">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Email" name="user_email" type="email" required>
+                                <input class="form-control" placeholder="Email" name="sp_email" type="email" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="user_password" type="password"

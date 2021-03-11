@@ -17,7 +17,6 @@ $edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
 extract($edit_row);
 
 ?>
-
 <?php
 include("config.php");
 $stmt_edit = $DB_con->prepare("select sum(order_price) as total from orderdetails where c_email=:user_email and order_status='Ordered'");

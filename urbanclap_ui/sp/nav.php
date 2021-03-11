@@ -26,20 +26,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Urban Services - Administrator Panel</a>
+                <a class="navbar-brand" href="index.php">Urban Services -Service Provider Panel</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li><a href="index.php"> &nbsp; &nbsp; &nbsp; Home</a></li>
-					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Add A Service</a></li>
-					<li><a href="items.php"> &nbsp; &nbsp; &nbsp; Service Management</a></li>
-					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Customer Management</a></li>
-					
-					
-					<li><a href="customers.php"> &nbsp; &nbsp; &nbsp; S. Provider Management</a></li>
-					
-					
-					<li class="active"><a href="orderdetails.php"> &nbsp; &nbsp; &nbsp; Order Details</a></li>
+					<li><a data-toggle="modal" data-target="#uploadModal"> &nbsp; &nbsp; &nbsp; Update Profile</a></li>
+
+					<li><a href="view_orders.php"> &nbsp; &nbsp; &nbsp; Service Request</a></li>
+                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Payment Details</a></li>
+
+					<li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Tender List</a></li>
+                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Bid for tender</a></li>
+                    <li ><a href="customers.php"> &nbsp; &nbsp; &nbsp; Ongoing Tender</a></li>
+                    
+				
 					<li><a href="logout.php"> &nbsp; &nbsp; &nbsp; Logout</a></li>
 					
                     
@@ -52,13 +53,7 @@
                             echo $new; ?></a>
                         
                     </li>
-                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php   extract($_SESSION); echo $admin_username; ?><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
-                        </ul>
-                    </li>
+                     
                 </ul>
             </div>
         </nav>

@@ -217,7 +217,7 @@ session_start();
   <label class="col-md-4 control-label">Full Name</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
   <input  name="sp_name" placeholder="Name" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -230,7 +230,7 @@ session_start();
   <label class="col-md-4 control-label" >Address</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
   <input name="sp_add" placeholder="Address" class="form-control"  type="text" required="">
     </div>
   </div>
@@ -243,7 +243,7 @@ session_start();
   <label class="col-md-4 control-label" >City</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-map" aria-hidden="true"></i></span>
   <input name="sp_city" placeholder="City" class="form-control"  type="text">
     </div>
   </div>
@@ -258,7 +258,7 @@ session_start();
   <label class="col-md-4 control-label">Contact No.</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <span class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
   <input name="sp_contact" placeholder="Phone" class="form-control" type="text" required="">
     </div>
   </div>
@@ -285,7 +285,7 @@ session_start();
   <label class="col-md-4 control-label" >Experience</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
   <input name="sp_exp" placeholder="Experience" class="form-control"  type="number">
     </div>
   </div>
@@ -298,7 +298,7 @@ session_start();
   <label class="col-md-4 control-label" >Account No</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
   <input name="sp_ac" placeholder="Account No" class="form-control"  type="number">
     </div>
   </div>
@@ -310,7 +310,7 @@ session_start();
   <label class="col-md-4 control-label" >IFSC Code</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
   <input name="sp_ifsc" placeholder="IFSC Code" class="form-control"  type="number">
     </div>
   </div>
@@ -322,7 +322,7 @@ session_start();
   <label class="col-md-4 control-label" >Rate</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-money" aria-hidden="true"></i></span>
   <input name="sp_rate" placeholder="Rate" class="form-control"  type="number">
     </div>
   </div>
@@ -352,7 +352,7 @@ session_start();
   <label class="col-md-4 control-label"> Service Name:</label>
     <div class="col-md-4 selectContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        <span class="input-group-addon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span>
     <select name="s_name" class="form-control selectpicker">
       <option value="">--Select Service--</option>
       <?php
@@ -380,7 +380,7 @@ while ($row = $result->fetch_array()) {
   <label class="col-md-4 control-label" >Password</label> 
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="fa fa-toggle-on" aria-hidden="true"></i></i></span>
   <input name="pass" placeholder="Password" class="form-control"  type="password">
     </div>
   </div>
@@ -396,7 +396,7 @@ while ($row = $result->fetch_array()) {
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4"><br>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREATE ACCOUNT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREATE ACCOUNT  <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
   </div>
 </div>
 
