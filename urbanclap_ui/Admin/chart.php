@@ -13,13 +13,13 @@ include "nav.php";
 ?>
 <?php
 include "config.php";
+
+
+
+
+
+
 ?>
-
-
-
-
-
-
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
