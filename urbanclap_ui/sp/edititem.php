@@ -105,11 +105,19 @@ if(!$_SESSION['admin_username'])
 	
 ?>
 <?php
-include "nav.php";
-?>
+	include 'nav.php';
+		?>
         <div id="page-wrapper">
             
-<div class="clearfix"></div>
+			
+			
+			
+			
+			
+			
+			
+			
+		<div class="clearfix"></div>
 
 <form method="post" enctype="multipart/form-data" class="form-horizontal">
 	
@@ -167,7 +175,7 @@ include "nav.php";
 	 
 	 <div class="alert alert-default" style="background-color:#033c73;">
                        <p style="color:white;text-align:center;">
-					   By Group One |  2021 B.Tech V SEM CU.
+                       &copy 2016 Urban Services| All Rights Reserved |  Design by : EDGE Team
 
 						</p>
                         
@@ -192,10 +200,71 @@ include "nav.php";
 
 	
 	<!-- Mediul Modal -->
-	<?php
-include "addservice.php";
-?>
-
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myMediulModalLabel">
+          <div class="modal-dialog modal-md">
+            <div style="color:white;background-color:#008CBA" class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 style="color:white" class="modal-title" id="myModalLabel">Upload Items</h2>
+              </div>
+              <div class="modal-body">
+         
+				
+			
+				
+				 <form enctype="multipart/form-data" method="post" action="additems.php">
+                   <fieldset>
+					
+						
+                            <p>Name of Item:</p>
+                            <div class="form-group">
+							
+                                <input class="form-control" placeholder="Name of Item" name="item_name" type="text" required>
+                           
+							 
+							</div>
+							
+							
+							
+							
+							
+							
+							
+							
+							<p>Price:</p>
+                            <div class="form-group">
+							
+                                <input id="priceinput" class="form-control" placeholder="Price" name="item_price" type="text" required>
+                           
+							 
+							</div>
+							
+							
+							<p>Choose Image:</p>
+							<div class="form-group">
+						
+							 
+                                <input class="form-control"  type="file" name="item_image" accept="image/*" required/>
+                           
+							</div>
+				   
+				   
+					 </fieldset>
+                  
+            
+              </div>
+              <div class="modal-footer">
+               
+                <button class="btn btn-success btn-md" name="item_save">Save</button>
+				
+				 <button type="button" class="btn btn-danger btn-md" data-dismiss="modal">Cancel</button>
+				
+				
+				   </form>
+              </div>
+            </div>
+          </div>
+        </div>
 		
 		
 		

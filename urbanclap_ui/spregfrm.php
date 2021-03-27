@@ -311,7 +311,7 @@ session_start();
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
-  <input name="sp_ifsc" placeholder="IFSC Code" class="form-control"  type="number">
+  <input name="sp_ifsc" placeholder="IFSC Code" class="form-control"  type="text">
     </div>
   </div>
 </div>

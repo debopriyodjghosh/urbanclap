@@ -91,7 +91,7 @@ include("config.php");
 				
 				 
 				
-				 <a class="btn btn-info" href="edititem.php?edit_id=<?php echo $row['s_name']; ?>" title="click for edit" onclick="return confirm('Are you sure edit this item?')"><span class='glyphicon glyphicon-pencil'></span> Edit Item</a> 
+				 <!--<a class="btn btn-info" href="edititem.php?edit_id=<?php echo $row['s_name']; ?>" title="click for edit" onclick="return confirm('Are you sure edit this item?')"><span class='glyphicon glyphicon-pencil'></span> Edit Item</a>--> 
 				
                   <a class="btn btn-danger" href="?s_name=<?php echo $row['s_name']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this item?')"><span class='glyphicon glyphicon-trash'></span> Remove Item</a>
 				

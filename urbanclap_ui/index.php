@@ -249,8 +249,8 @@ session_start();
     <section class="teams" id="teams">
         <div class="max-width">
             <h2 class="title">Our Services</h2>
- <div class="container bg-white mt-5 p-3">
-    <div class="row g-2">
+        <div class="container bg-white mt-5 p-3">
+            <div class="row g-2">
         <div class="col-md-2">
             <div class="card text-center">
                 <div class="image"> <img src="assets/img/sofa.png" width="36" /> </div> <span>Saloon</span>
@@ -482,7 +482,7 @@ session_start();
                     <div class="bars">
                         <div class="info">
                             <span>Environment friendly</span>
-                            <span>100%</span>
+                            <span>90%</span>
                         </div>
                         <div class="line html"></div>
                     </div>
@@ -503,7 +503,7 @@ session_start();
                     <div class="bars">
                         <div class="info">
                             <span> Best Startup Award </span>
-                            <span>100%</span>
+                            <span>50%</span>
                         </div>
                         <div class="line php"></div>
                     </div>

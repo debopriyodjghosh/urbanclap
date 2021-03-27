@@ -85,11 +85,11 @@ if ($stmt->rowCount() > 0) {
 				
 				 
 				
-				 <a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
+				 <!--<a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
 				  <a class="btn btn-warning" href="?order_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
 				  <span class='glyphicon glyphicon-ban-circle'></span>
 				  Reset Order</a>
-				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> 
+				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> -->
 				
 				
                   <a class="btn btn-danger" href="?delete_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this customer?')">

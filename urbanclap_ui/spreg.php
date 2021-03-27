@@ -27,6 +27,8 @@ if ($dbcon->query($sql) === TRUE) {
 	$sql = "UPDATE service set No_sp =No_sp + 1 where s_name='$s_name'";
 	$result = $dbcon->query($sql);
 	echo "<script>alert('You are registered successfully!')</script>";
+	echo "<script>window.open('index.php?','_self')</script>";
+
 	#header("Location: index.php");
 	?>
 	
@@ -34,7 +36,8 @@ if ($dbcon->query($sql) === TRUE) {
 
 }
 else {
-echo "<script>alert('Try with different id. You are already registered !')</script>";?>
+echo "<script>alert('Try with different id. You are already registered !')</script>";
+echo "<script>window.open('spregfrm.php?','_self')</script>";?>
 <a href="spregfrm.php"><h2>Back to previous page</h2></a>   
 <?php 
 }

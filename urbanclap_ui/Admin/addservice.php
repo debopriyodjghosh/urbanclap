@@ -10,7 +10,7 @@
 				
 			
 				
-				 <form enctype="multipart/form-data" method="post" action="addservice.php">
+				 <form enctype="multipart/form-data" method="post" action="servadd.php">
                    <fieldset>
 					
 						
