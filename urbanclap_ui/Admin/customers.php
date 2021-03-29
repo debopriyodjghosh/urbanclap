@@ -13,6 +13,8 @@ if (!$_SESSION['admin_username'])
 require_once 'config.php';
 
 if (isset($_GET['delete_id'])) {
+	$stmt_delete = $DB_con->prepare('SET foreign_key_checks = 0');
+		$stmt_delete->execute();
 
 	$stmt_delete = $DB_con->prepare('DELETE FROM customer WHERE c_email =:c_email');
 	$stmt_delete->bindParam(':c_email', $_GET['delete_id']);
@@ -29,7 +31,7 @@ require_once 'config.php';
 
 if (isset($_GET['order_id'])) {
 
-	$stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
+	$stmt_delete = $DB_con->prepare('UPDATE orderdetails set order_status="Ordered_Finished"  WHERE user_id =:user_id and order_status="Ordered"');
 	$stmt_delete->bindParam(':user_id', $_GET['order_id']);
 	$stmt_delete->execute();
 
@@ -85,11 +87,11 @@ if ($stmt->rowCount() > 0) {
 				
 				 
 				
-				 <!--<a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
-				  <a class="btn btn-warning" href="?order_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
+				<a class="btn btn-success" href="view_orders.php?view_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-shopping-cart'></span> View Orders</a> 
+				   <!--<a class="btn btn-warning" href="?order_id=<?php #echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to reset the customer items ordered?')">
 				  <span class='glyphicon glyphicon-ban-circle'></span>
 				  Reset Order</a>
-				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php echo $row['c_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> -->
+				 <a class="btn btn-primary" href="previous_orders.php?previous_id=<?php #echo $row['c_email']; ?>"><span class='glyphicon glyphicon-eye-open'></span> Previous Items Ordered</a> -->
 				
 				
                   <a class="btn btn-danger" href="?delete_id=<?php echo $row['c_email']; ?>" title="click for delete" onclick="return confirm('Are you sure to remove this customer?')">

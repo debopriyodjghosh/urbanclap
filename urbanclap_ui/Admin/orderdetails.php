@@ -51,11 +51,12 @@ include "nav.php";
                 <tr>
 				<th>Oid</th>
                   <th>Date Ordered</th>
-                  <th>Customer Name</th>
+                  <th>Customer Email</th>
 				  <th>Address</th>
-				  <th>SP Name</th>
+				  <th>SP Email</th>
                   <th>Price</th>
-				  <th>Status</th>
+				  <th>Order Sts</th>
+				  <th>Payment Sts</th>
 				   <th>Actions</th>
                  
                 </tr>
@@ -77,12 +78,13 @@ include("config.php");
                 <tr>
                   
                  <td><?php echo $order_id; ?></td>
-				 <td><?php echo $order_date; ?> 
+				 <td><?php $newDate = date("d-m-Y", strtotime($order_date));  echo $newDate; ?> </td> 
 				 <td><?php echo $c_email; ?></td>
 				 <td><?php echo $order_add; ?></td>
 				 <td><?php echo $sp_email; ?></td>
 				 <td>&#8377; <?php echo $order_price; ?></td>
 				 <td><?php echo $order_status; ?></td>
+				 <td><?php echo $payment_status; ?></td>
 				 
 				 
 				 <td>

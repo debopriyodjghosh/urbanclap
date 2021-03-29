@@ -14,14 +14,17 @@ if(!$_SESSION['admin_username'])
 	require_once 'config.php';
 	
 	if(isset($_GET['s_name']))
-	{
+	{ 
 		
 		$stmt_select = $DB_con->prepare('SELECT s_img FROM service WHERE s_name =:s_name');
 		$stmt_select->execute(array(':s_name'=>$_GET['s_name']));
 		$imgRow=$stmt_select->fetch(PDO::FETCH_ASSOC);
 		unlink("service_images/".$imgRow['s_img']);
 		
-	
+		
+		$stmt_delete = $DB_con->prepare('SET foreign_key_checks = 0');
+		$stmt_delete->execute();
+
 		$stmt_delete = $DB_con->prepare('DELETE FROM service WHERE s_name =:s_name');
 		$stmt_delete->bindParam(':s_name',$_GET['s_name']);
 		$stmt_delete->execute();

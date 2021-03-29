@@ -14,6 +14,8 @@ if(!$_SESSION['admin_username'])
 	
 	if(isset($_GET['delete_id']))
 	{
+		$stmt_delete = $DB_con->prepare('SET foreign_key_checks = 0');
+		$stmt_delete->execute();
 		$stmt_delete = $DB_con->prepare('DELETE FROM service_provider WHERE sp_email =:sp_email');
 		$stmt_delete->bindParam(':sp_email',$_GET['delete_id']);
 		$stmt_delete->execute();

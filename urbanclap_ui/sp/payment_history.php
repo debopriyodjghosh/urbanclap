@@ -21,13 +21,13 @@ extract($edit_row);
 
 include("config.php");
 
-if (isset($_GET['order_id'])) {
+if (isset($_GET['finish_id'])) {
 
-	$stmt_reject = $DB_con->prepare('UPDATE orderdetails set order_status="Rejected by SP"  WHERE order_id =:order_id');
-	$stmt_reject->bindParam(':order_id', $_GET['order_id']);
+	$stmt_reject = $DB_con->prepare('UPDATE orderdetails set order_status="Order Finished"  WHERE order_id =:finish_id');
+	$stmt_reject->bindParam(':finish_id', $_GET['finish_id']);
 	$stmt_reject->execute();
 
-	header("Location: view_orders.php");
+	header("Location: payment_history.php");
 }
 
 ?>
@@ -36,16 +36,17 @@ if (isset($_GET['order_id'])) {
 
 include("config.php");
 
-if (isset($_GET['accept_id'])) {
+if (isset($_GET['claim_id'])) {
 
-	$stmt_reject = $DB_con->prepare('UPDATE orderdetails set order_status="Payment_finished & Accepted"  WHERE order_id =:accept_id');
-	$stmt_reject->bindParam(':accept_id', $_GET['accept_id']);
+	$stmt_reject = $DB_con->prepare('UPDATE orderdetails set payment_status="Due"  WHERE order_id =:claim_id');
+	$stmt_reject->bindParam(':claim_id', $_GET['claim_id']);
 	$stmt_reject->execute();
 
-	header("Location: view_orders.php");
+	header("Location: payment_history.php");
 }
 
 ?>
+
 
 
 
@@ -54,58 +55,69 @@ include "nav.php";?>
         <div id="page-wrapper">
             <div class="alert alert-default" style="color:white;background-color:#008CBA">
                 <center>
-                    <h3> <span class="glyphicon glyphicon-list-alt"></span> My Service Request</h3>
+                    <h3> <span class="glyphicon glyphicon-list-alt"></span> My Payment</h3>
                 </center>
             </div><br />
             <div class="table-responsive">
                 <table class="display table table-bordered" id="example" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Oid</th>
+                        <th>Oid</th>
                             <th>Service</th>
                             <th>Date</th>
-                            <th>Address</th>
-                              <th>Price</th>
-							<th>Status</th>                            
+                            <th>Price</th>
+							<th>Order Status</th>    
+                            <th>Payment Status</th>                        
                             <th>Actions</th>                            
-                            <th>Customer Contact</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                                 <?php
                                 include("config.php");
-                                $stmt = $DB_con->prepare("SELECT * FROM orderdetails where sp_email='$sp_email' order by order_id desc");
+                                $stmt = $DB_con->prepare("SELECT * FROM orderdetails where sp_email='$sp_email' ORDER BY order_id DESC");
                                 $stmt->execute();
                                 if ($stmt->rowCount() > 0) {
                                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                         extract($row);
                                 ?>
-                                <tr>
-                                    <td><?php echo $order_id; ?></td>
+                                <tr><td><?php echo $order_id; ?> </td>
                                     <td><?php echo $order_name; ?></td>
+                                    
+   
                                     <td><?php $newDate = date("d-m-Y", strtotime($order_date));  echo $newDate; ?> </td>
-                                    <td><?php echo $order_add; ?></td>
+                                    
                                     <td><?php echo $order_price; ?> </td>
 									<td><?php echo $order_status; ?></td>
+                                    <td><?php echo $payment_status; ?></td>
                                     <td>
-                                        <?php
-                                        if($order_status=='Payment_finished'){
-                                            ?><a class="btn btn-success" href="?accept_id=<?php echo $row['order_id']; ?>" title="click for Accept" onclick="return confirm('Are you sure to Accept this order?')">
-                                            <span class='glyphicon glyphicon-check'></span> Accept</a>
-                                            <a class="btn btn-danger" href="?order_id=<?php echo $row['order_id']; ?>" title="click for Reject" onclick="return confirm('Are you sure to reject this order?')">
-				                            <span class='glyphicon glyphicon-remove'></span> Reject</a>
-                                            <?php }?>
-                                    </td>
                                     <?php
-                                    include("config.php");
-                                    $stm = $DB_con->prepare("SELECT c_contact FROM customer where c_email=(select c_email from orderdetails where sp_email='$sp_email' and order_id='$order_id')");
-                                    $stm->execute();
-                                    if ($stm->rowCount() > 0) {
-                                        while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
-                                            extract($row);}}  ?>
-                                      <td><?php echo $c_contact; ?></td>                                      
-                                </tr>                                
+                             if( $order_status=='Payment_finished & Accepted' ){
+                                ?><a class="btn btn-success" href="?finish_id=<?php echo $row['order_id']; ?>" title="click for Finish" onclick="return confirm('Are you sure to finish this order?')">
+                                <span class='glyphicon glyphicon-ok-sign'></span> Order Finished</a>
+                                <?php }
+
+                                elseif($order_status=='Order Finished' ){
+                                    if($payment_status=='Paid'){
+                                        ?> <a class="btn btn-primary"> Thank you</a>
+                                        <?php }elseif($payment_status==''){
+                                ?> <a class="btn btn-success" href="?claim_id=<?php echo $row['order_id']; ?>" title="click for Accept" onclick="return confirm('Are you sure to Accept this order?')">
+                                <span class='glyphicon glyphicon-check'></span> Claim Payment</a></td>
+                                <?php }}
+                            else {?>
+                                <a class="btn btn-info"> Thank you</a><?php
+                            }?>
+                                   
+                                       
+                                    
+
+                                      
+                                </tr>
+                                
                             <?php
+
+
+
                             }
 						}else {
                             ?>

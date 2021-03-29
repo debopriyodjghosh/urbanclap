@@ -109,7 +109,7 @@ if ($stmt->rowCount() > 0) {
     echo "<td colspan='3' align='right'>Total Price:";
     echo "</td>";
 
-    echo "<td>&#8369; " . $totalx;
+    echo "<td>&#8377; " . $totalx;
     echo "</td>";
 
     echo "<td>";

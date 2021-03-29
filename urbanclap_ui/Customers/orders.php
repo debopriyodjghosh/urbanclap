@@ -22,7 +22,7 @@ extract($edit_row);
 require_once 'config.php';
 
 if (isset($_GET['update_id'])) {
-    $stmt_delete = $DB_con->prepare('update orderdetails set order_status="Ordered_finished" WHERE order_status="Ordered" and c_email =:user_email');
+    $stmt_delete = $DB_con->prepare('UPDATE orderdetails set order_status="Payment_finished" WHERE order_status="Ordered" and c_email =:user_email');
     $stmt_delete->bindParam(':user_email', $_GET['update_id']);
     $stmt_delete->execute();
     echo "<script>alert('Item/s successfully ordered!')</script>";
