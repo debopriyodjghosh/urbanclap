@@ -138,7 +138,7 @@ include "nav.php";
 		<?php
 		include("config.php");
 		 $stmt_t = $DB_con->prepare("SELECT sum(order_price) as totalx from orderdetails where order_status='Refund Claimed'");
-		$stmt_t->execute(array(':order_id'=>$order_id));
+		$stmt_t->execute();
 		$edit_row = $stmt_t->fetch(PDO::FETCH_ASSOC);
 		extract($edit_row);
 
@@ -151,7 +151,7 @@ include "nav.php";
 ?><?php
 		include("config.php");
 		 $stmt_e = $DB_con->prepare("SELECT sum(order_price) as totalx from orderdetails where order_status='Order Finished' and payment_status='Due'");
-		$stmt_e->execute(array(':order_id'=>$order_id));
+		$stmt_e->execute();
 		$edit_ro = $stmt_e->fetch(PDO::FETCH_ASSOC);
 		extract($edit_ro);
 
